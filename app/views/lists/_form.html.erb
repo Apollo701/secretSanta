@@ -1,0 +1,25 @@
+<%= form_for @list do |f| %>
+
+  <div class="field">
+    <%= f.label :price_limit %><br>
+    <%= f.text_field :price_limit %>
+  </div>
+
+  Users:
+  <ul>
+    <%= f.fields_for :users do |users_form| %>
+      <li>
+        <%= users_form.label :name %>
+        <%= users_form.text_field :name %>
+ 
+        <%= users_form.label :email %>
+        <%= users_form.text_field :email %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
