@@ -8,6 +8,11 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
     if @list.save
+      # Tell the UserMailer to send a welcome email after save
+      @list.users.each do |user|
+        UserMailer.welcome_email(user).deliver_now
+      end
+        
       render json: @list, status: :created, location: @list
     else
       render json: @list.errors, status: :unprocessable_entity
