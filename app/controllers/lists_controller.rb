@@ -11,7 +11,7 @@ class ListsController < ApplicationController
       # Tell the UserMailer to send a welcome email after save
       send_emails
         
-      render json: @list, status: :created, location: @list
+      render json: @list.users, status: :created, location: @list
     else
       render json: @list.errors, status: :unprocessable_entity
     end

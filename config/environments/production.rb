@@ -1,4 +1,14 @@
 Rails.application.configure do
+
+  config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'https://secret-santa-site.herokuapp.com/lists.com',
+  user_name:            'secret.santas.personal.elf@gmail.com',
+  password:             'uroboros12',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
