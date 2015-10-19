@@ -1,25 +1,24 @@
 <%= form_for @list do |f| %>
 
-  <div class="field">
+  <div class="form-inline">
+  <div class="form-group">
     <%= f.label :price_limit %><br>
-    <%= f.text_field :price_limit %>
-  </div>
+    <%= f.text_field :price_limit, class: "form-control", placeholder: "$XX.XX" %>
 
-  Users:
+  <h1>Users:</h1>
   <ul>
     <%= f.fields_for :users do |users_form| %>
       <li>
         <%= users_form.label :name %>
-        <%= users_form.text_field :name %>
+        <%= users_form.text_field :name, class: "form-control" %>
  
         <%= users_form.label :email %>
-        <%= users_form.text_field :email %>
+        <%= users_form.text_field :email, class: "form-control" %>
       </li>
+      <br>
     <% end %>
   </ul>
 
-  <div class="actions">
     <%= f.submit %>
   </div>
-
 <% end %>
