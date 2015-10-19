@@ -28,8 +28,9 @@ class ListsController < ApplicationController
     end
 
     def send_emails
-    for i in -1..(@list.users.size - 2)
-        UserMailer.welcome_email(@list.users[i], @list.users[i+1]).deliver_now
+    @users = @list.users.shuffle
+    for i in -1..(@users.size - 2)
+        UserMailer.welcome_email(@users[i], @users[i+1]).deliver_now
       end
   end
 end
