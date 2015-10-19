@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'lists#new'
   resources :lists, only: [:new, :create, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.

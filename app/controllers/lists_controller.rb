@@ -9,8 +9,8 @@ class ListsController < ApplicationController
 
     if @list.save
       # Tell the UserMailer to send a welcome email after save
-      @list.users.each do |user|
-        UserMailer.welcome_email(user).deliver_now
+      for i in -1..(@list.users.size - 2)
+        UserMailer.welcome_email(@list.users[i], @list.users[i+1]).deliver_now
       end
         
       render json: @list, status: :created, location: @list
@@ -18,6 +18,21 @@ class ListsController < ApplicationController
       render json: @list.errors, status: :unprocessable_entity
     end
   end
+
+  # def create
+  #   @list = List.new(list_params)
+
+  #   if @list.save
+  #     # Tell the UserMailer to send a welcome email after save
+  #     @list.users.each do |user|
+  #       UserMailer.welcome_email(user).deliver_now
+  #     end
+        
+  #     render json: @list, status: :created, location: @list
+  #   else
+  #     render json: @list.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   def show
     @list = List.find(params[:id])
