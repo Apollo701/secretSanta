@@ -4,7 +4,7 @@ Rails.application.configure do
 config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               'https://secret-santa-site.herokuapp.com/lists.com',
+  domain:               'https://secret-santa-site.herokuapp.com/.com',
   user_name:            'secret.santas.personal.elf@gmail.com',
   password:             'SecretSanta123',
   authentication:       'plain',
