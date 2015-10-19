@@ -6,7 +6,7 @@ config.action_mailer.smtp_settings = {
   port:                 587,
   domain:               'https://secret-santa-site.herokuapp.com/lists.com',
   user_name:            'secret.santas.personal.elf@gmail.com',
-  password:             'uroboros12',
+  password:             'SecretSanta123',
   authentication:       'plain',
   enable_starttls_auto: true  }
   # Settings specified here will take precedence over those in config/application.rb.
