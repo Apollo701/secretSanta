@@ -4,14 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com</h1>
+<div class="container">
+    <div class="jumbotron">
+      <h1 class="header">Secret Santa</h1>
+    </div>
     <p>
-      You have successfully signed up to example.com<br>
-      <%= @giver.email %>
+      Dear Secret Santa Ninja <%= @giver.name %>,<br>
+Santa's reindeer have been injured in battle...Whether you're feeling jolly or naughty or not so nice, the time has come to buy <%= @receiver.name %> a gift! There are no restrictions other than the price which is <%= @price_limit %>. Be creative and if you're feeling coal, then do coal!
     </p>
-    <p>
-    Buy a gift for <%= @receiver.email %>
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+  </div>
   </body>
 </html>
