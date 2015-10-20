@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   def new
     @list = List.new
-    3.times { @list.users.build }
+    5.times { @list.users.build }
   end
 
   def create
