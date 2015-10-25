@@ -1,24 +1,13 @@
-<%= form_for @list do |f| %>
-
-  <div class="form-inline">
-  <div class="form-group">
-    <%= f.label :price_limit %><br>
-    <%= f.text_field :price_limit, class: "form-control", placeholder: "$XX.XX" %>
-
-  <h1>Users:</h1>
-  <ul>
-    <%= f.fields_for :users do |users_form| %>
-      <li>
-        <%= users_form.label :name %>
-        <%= users_form.text_field :name, class: "form-control" %>
- 
-        <%= users_form.label :email %>
-        <%= users_form.text_field :email, class: "form-control" %>
-      </li>
-      <br>
+<%= simple_form_for @list do |f| %>
+  <%= f.input :price_limit %>
+  <h3>Users</h3>
+  <div id='users'>
+    <%= f.simple_fields_for :users do |user| %>
+      <%= render 'user_fields', :f => user %>
     <% end %>
-  </ul>
-
-    <%= f.submit %>
+    <div class='links'>
+      <%= link_to_add_association 'add user', f, :users %>
+    </div>
   </div>
+    <%= f.submit 'Save' %>
 <% end %>
