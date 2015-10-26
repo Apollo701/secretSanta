@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   def new
     @list = List.new
-    @list.users.build
+    3.times { @list.users.build }
   end
 
   def create
@@ -13,7 +13,7 @@ class ListsController < ApplicationController
         
       render :show
     else
-      render json: @list.errors, status: :unprocessable_entity
+      render 'new'
     end
   end
 
